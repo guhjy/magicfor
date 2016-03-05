@@ -6,7 +6,10 @@ magic_for <- function() {
   calling_env <- parent.frame()
   my_for <- function(var, seq, call) {
     rm("for", envir = calling_env)
+
     var <- substitute(var)
+    .result_env$input_name <- var
+    .result_env$input <- seq
     call <- substitute(call)
 
     if(call[[1]] != "{") {
