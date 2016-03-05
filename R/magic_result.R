@@ -21,7 +21,7 @@ magic_result_as_vector <- function() {
 #'
 #' @export
 magic_result_as_dataframe <- function() {
-  text <- sprintf("data.frame(%s = .result_env$input, stringsAsFactors = FALSE)", deparse(.result_env$input_name))
+  text <- sprintf("data.frame(%s = I(.result_env$input), stringsAsFactors = FALSE)", deparse(.result_env$input_name))
   df_input <- eval(parse(text = text))
   df_result <- data.frame(Map(I, .result_env$result))
   cbind(df_input, df_result)
