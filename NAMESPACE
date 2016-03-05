@@ -2,4 +2,6 @@
 
 export(magic_for)
 export(magic_result)
+export(magic_result_as_dataframe)
+export(magic_result_as_vector)
 import(R6)

@@ -75,19 +75,14 @@ for(i in 1:3) {
   print(z)
 }
 
-result <- magic_result()
-unlist(result$y)
+result <- magic_result_as_dataframe()
+result
 ```
 
 ```
-## [1] 2 4 6
-```
-
-```r
-unlist(result$z)
-```
-
-```
-## [1] 1 4 9
+##   y z
+## 1 2 1
+## 2 4 4
+## 3 6 9
 ```
 

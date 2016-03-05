@@ -50,8 +50,7 @@ for(i in 1:3) {
   print(z)
 }
 
-result <- magic_result()
-unlist(result$y)
-unlist(result$z)
+result <- magic_result_as_dataframe()
+result
 ```
 
