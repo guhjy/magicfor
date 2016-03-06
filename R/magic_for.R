@@ -49,6 +49,7 @@ magic_for <- function() {
     environment(f) <- parent.frame()
 
     f(result, .result_env)
+    invisible(.result_env$result)
   }
   assign("for", my_for, envir = calling_env)
   invisible(.result_env)
