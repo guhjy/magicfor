@@ -1,10 +1,26 @@
 ---
 title: "magicfor: Magic Functions to Obtain Results from for Loops in R"
-author: Koji MAKIYAMA(@hoxo_m)
+author: Koji MAKIYAMA (@hoxo_m)
 output: 
   html_document:
     keep_md: true
+  md_document:
+    variant: markdown_github
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/hoxo-m/magicfor.svg?branch=master)](https://travis-ci.org/hoxo-m/magicfor)
+[![CRAN Version](http://www.r-pkg.org/badges/version/magicfor)](https://cran.r-project.org/package=magicfor)
+[![Coverage Status](https://coveralls.io/repos/github/hoxo-m/magicfor/badge.svg?branch=master)](https://coveralls.io/github/hoxo-m/magicfor?branch=master)
 
 ## 1. Overview
 
@@ -13,20 +29,22 @@ It is very useful to create loops, for example:
 
 ```{r}
 for (i in 1:3) {
-   print(i * 2)
+  squared <- i ^ 2
+  print(squared)
 }
 ```
 
 ```{r}
-squared <- vector("numeric", 3)
+result <- vector("numeric", 3)
 for (i in 1:3) {
-  squared[i] <- i * 2
+  squared <- i ^ 2
+  result[i] <- squared
 }
-squared
+result
 ```
 
 ```{r}
-data.frame(i = 1:3, squared = squared)
+data.frame(i = 1:3, squared = result)
 ```
 
 ```{r}
@@ -34,7 +52,8 @@ library(magicfor)
 
 magic_for(print)
 for (i in 1:3) {
-  print(i * 2)
+  squared <- i ^ 2
+  print(squared)
 }
 magic_result_as_dataframe()
 ```
