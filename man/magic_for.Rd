@@ -4,7 +4,15 @@
 \alias{magic_for}
 \title{Magicalize for()}
 \usage{
-magic_for()
+magic_for(func = put, progress = FALSE, test = FALSE,
+  max_object_size = 1 * MB)
+}
+\arguments{
+\item{func}{a name.}
+
+\item{progress}{logical.}
+
+\item{max_object_size}{a number. default 1 MB.}
 }
 \description{
 Magicalize for()

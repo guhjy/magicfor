@@ -2,7 +2,11 @@
 
 export(magic_for)
 export(magic_for_apply)
+export(magic_free)
 export(magic_result)
 export(magic_result_as_dataframe)
 export(magic_result_as_vector)
-import(R6)
+export(put)
+importFrom(utils,object.size)
+importFrom(utils,setTxtProgressBar)
+importFrom(utils,txtProgressBar)
