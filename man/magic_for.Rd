@@ -12,6 +12,8 @@ magic_for(func = put, progress = FALSE, test = FALSE,
 
 \item{progress}{logical.}
 
+\item{test}{logical or a number.}
+
 \item{max_object_size}{a number. default 1 MB.}
 }
 \description{

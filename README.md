@@ -61,6 +61,22 @@ magic_result_as_dataframe()
 #> 3 3       9
 ```
 
+## 2. Installation
+
+You can install the package from GitHub.
+
+
+```r
+install.packages("devtools") # if you have not installed "devtools" package
+devtools::install_github("hoxo-m/magicfor")
+```
+
+The source code for githubinstall package is available on GitHub at
+
+- https://github.com/hoxo-m/magicfor.
+
+## 3. Details
+
 When we use for loops in R, we need to ready some variables for the results.
 
 

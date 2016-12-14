@@ -141,6 +141,10 @@ to_var_name <- function(statement) {
   names
 }
 
+#' Print values
+#'
+#' @param ... values
+#'
 #' @export
 put <- function (...) {
   vars <- substitute(list(...))
