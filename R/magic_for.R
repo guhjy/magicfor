@@ -20,7 +20,7 @@ magic_for <- function(func = put, progress = FALSE, test = FALSE, verbose = TRUE
 
   my_for <- function(for_var_symbol, for_seq, for_body) {
     if (verbose || progress) message(sprintf("%s() is magicalized.", as.character(func)))
-    remove_myself_from_calling_env(calling_env)
+    if (temp) remove_myself_from_calling_env(calling_env)
 
     # Preprocess --------------------------------------------------------------
     for_var_symbol <- substitute(for_var_symbol)

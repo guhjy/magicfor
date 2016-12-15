@@ -11,7 +11,8 @@ Koji MAKIYAMA (@hoxo_m)
 ## 1. Overview
 
 `for()` is one of the most popular functions in R.
-It is very useful to create loops, for example:
+As you know, it is used to create loops.
+For example, let's calculate squared values for 1 to 3:
 
 
 ```r
@@ -91,8 +92,9 @@ for(i in 1:3) {
   x <- i * 2
   result[i] <- x
 }
+#> print() is magicalized.
 result
-#> [1] 2 4 6
+#> [1] 0 0 0
 ```
 
 Before the (final) code, you may dash off the following code using `print()`.
@@ -103,6 +105,7 @@ for(i in 1:3) {
   x <- i * 2
   print(x)
 }
+#> print() is magicalized.
 #> [1] 2
 #> [1] 4
 #> [1] 6
