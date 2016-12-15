@@ -26,5 +26,5 @@ magic_result_as_dataframe <- function() {
     result <- c(list(.result_env$input), result)
     names(result)[1] <- .result_env$input_name
   }
-  data.frame(Map(function(res) if(is.atomic(res[[1]])) unlist(res) else I(res), result), stringsAsFactors = FALSE)
+  data.frame(Map(function(res) if(is.atomic(res[[1]])) unlist(res) else I(res), result), stringsAsFactors = FALSE, check.names = FALSE)
 }

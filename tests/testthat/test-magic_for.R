@@ -53,5 +53,5 @@ test_that("magic_for 3", {
     put(x = i * 2, i * 3)
   }
   act <- magic_result()
-  expect_equal(act, list(x = list(2, 4, 6), i.3 = list(3, 6, 9)))
+  expect_equal(act, list(x = list(2, 4, 6), `i*3` = list(3, 6, 9)))
 })

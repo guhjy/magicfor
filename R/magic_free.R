@@ -4,7 +4,7 @@
 magic_free <- function() {
   calling_env <- parent.frame()
   if (!is.primitive(get("for", calling_env))) {
-    remove(list = "for", envir = calling_env)
+    remove("for", envir = calling_env)
   }
 
   var_names <- ls(.result_env, all.names = TRUE)

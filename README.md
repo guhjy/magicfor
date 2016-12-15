@@ -49,10 +49,16 @@ data.frame(i = 1:3, squared = result)
 library(magicfor)
 
 magic_for(print)
+
 for (i in 1:3) {
   squared <- i ^ 2
   print(squared)
 }
+#> print() is magicalized.
+#> [1] 1
+#> [1] 4
+#> [1] 9
+
 magic_result_as_dataframe()
 #>   i squared
 #> 1 1       1
@@ -110,24 +116,32 @@ The `magic_for()` function is very useful in such situations.
 ```r
 library(magicfor)
 
-magic_for()
+magic_for(print)
 
 for(i in 1:3) {
   x <- i * 2
   print(x)
 }
+#> print() is magicalized.
 #> [1] 2
 #> [1] 4
 #> [1] 6
 
 result <- magic_result()
 result$x
-#> NULL
+#> [[1]]
+#> [1] 2
+#> 
+#> [[2]]
+#> [1] 4
+#> 
+#> [[3]]
+#> [1] 6
 ```
 
 
 ```r
-magic_for()
+magic_for(print)
 
 for(i in 1:3) {
   x <- i * 2
@@ -135,6 +149,7 @@ for(i in 1:3) {
   y <- i * 3
   print(y)
 }
+#> print() is magicalized.
 #> [1] 2
 #> [1] 3
 #> [1] 4
@@ -144,9 +159,9 @@ for(i in 1:3) {
 
 result <- magic_result_as_dataframe()
 result
-#>   i
-#> 1 1
-#> 2 2
-#> 3 3
+#>   i x y
+#> 1 1 2 3
+#> 2 2 4 6
+#> 3 3 6 9
 ```
 
