@@ -8,6 +8,8 @@ put(..., envir = parent.frame())
 }
 \arguments{
 \item{...}{values}
+
+\item{envir}{environment}
 }
 \description{
 Print values

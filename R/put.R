@@ -1,6 +1,7 @@
 #' Print values
 #'
 #' @param ... values
+#' @param envir environment
 #'
 #' @export
 put <- function (..., envir = parent.frame()) {

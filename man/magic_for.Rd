@@ -14,9 +14,11 @@ magic_for(func = put, progress = FALSE, test = FALSE, verbose = TRUE,
 
 \item{test}{logical or a number.}
 
-\item{max_object_size}{a number. default 1 MB.}
+\item{verbose}{logical.}
 
-\item{temporary}{logical.}
+\item{temp}{logical.}
+
+\item{max_object_size}{a number. default 1 MB.}
 }
 \description{
 Magicalize for()

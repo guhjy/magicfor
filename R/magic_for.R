@@ -3,7 +3,8 @@
 #' @param func a name.
 #' @param progress logical.
 #' @param test logical or a number.
-#' @param temporary logical.
+#' @param verbose logical.
+#' @param temp logical.
 #' @param max_object_size a number. default 1 MB.
 #'
 #' @importFrom utils object.size setTxtProgressBar txtProgressBar
