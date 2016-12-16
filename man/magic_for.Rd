@@ -4,17 +4,17 @@
 \alias{magic_for}
 \title{Magicalize for()}
 \usage{
-magic_for(func = put, progress = FALSE, test = FALSE, verbose = TRUE,
+magic_for(func = put, progress = FALSE, test = FALSE, silent = FALSE,
   temp = FALSE, max_object_size = 1 * MB)
 }
 \arguments{
-\item{func}{a name.}
+\item{func}{function name.}
 
 \item{progress}{logical.}
 
 \item{test}{logical or a number.}
 
-\item{verbose}{logical.}
+\item{silent}{logical.}
 
 \item{temp}{logical.}
 

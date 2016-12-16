@@ -1,25 +1,25 @@
 #' Magicalize for()
 #'
-#' @param func a name.
+#' @param func function name.
 #' @param progress logical.
 #' @param test logical or a number.
-#' @param verbose logical.
+#' @param silent logical.
 #' @param temp logical.
 #' @param max_object_size a number. default 1 MB.
 #'
 #' @importFrom utils object.size setTxtProgressBar txtProgressBar
 #'
 #' @export
-magic_for <- function(func = put, progress = FALSE, test = FALSE, verbose = TRUE,
+magic_for <- function(func = put, progress = FALSE, test = FALSE, silent = FALSE,
                       temp = FALSE, max_object_size = 1 * MB) {
   magic_free()
   calling_env <- parent.frame()
   func <- substitute(func)
-  verbose <- verbose && !progress
+  silent <- silent || progress
   # TODO ignore func == if
 
   my_for <- function(for_var_symbol, for_seq, for_body) {
-    if (verbose || progress) message(sprintf("%s() is magicalized.", as.character(func)))
+    if (!silent || progress) message(sprintf("The loop is magicalized with %s().", as.character(func)))
     if (temp) remove_myself_from_calling_env(calling_env)
 
     # Preprocess --------------------------------------------------------------
@@ -68,19 +68,19 @@ magic_for <- function(func = put, progress = FALSE, test = FALSE, verbose = TRUE
             line
           }
         })
-        if (verbose) {
-          c(unlist(assign_lines), line)
-        } else {
+        if (silent) {
           unlist(assign_lines)
+        } else {
+          c(unlist(assign_lines), line)
         }
       } else if (main_func_of(line) == func) {
         arg_names <- get_arg_names(line[-1])
         result_var_names <<- c(result_var_names, arg_names)
         assign_lines <- to_assign_lines(arg_names, line[-1])
-        if (verbose) {
-          c(assign_lines, line)
-        } else {
+        if (silent) {
           assign_lines
+        } else {
+          c(assign_lines, line)
         }
       } else {
         line
