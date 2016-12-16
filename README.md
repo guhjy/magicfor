@@ -43,7 +43,7 @@ result
 #> [1] 1 4 9
 ```
 
-Moreover, you may want to store the result as a data frame with the iteration numbers.
+Moreover, you may want to store the result as a data.frame with the iteration numbers.
 
 
 ```r
@@ -67,7 +67,7 @@ In such or more troublesome situations like that you have to store many variable
 
 The **magicfor** package makes to resolve the problem being kept readability.
 
-Let's just add two lines before the for loop.
+You just add two lines before the for loop.
 First, load the library. Second, call `magic_for()`.
 Notice that the main for loop is kept intact.
 
@@ -89,7 +89,7 @@ magic_result_as_dataframe()     # get the result
 ```
 
 `magic_for()` takes a function name, and then reconstructs `for()` to remember values passed to the specified function in for loops.
-We call the reconstruction "magicalization".
+We call it "magicalization".
 Once you call `magic_for()`, as you just run `for()` as usual, the result will be stored in memory automatically.
 
 Here, we are using `magic_result_as_dataframe()` in order to get the stored values.
@@ -127,7 +127,7 @@ install.packages("devtools") # if you have not installed "devtools" package
 devtools::install_github("hoxo-m/magicfor")
 ```
 
-You can use **githubinstall** package to easy install from GitHub.
+You can also use **githubinstall** package to easy install from GitHub.
 
 
 ```r
@@ -135,13 +135,13 @@ install.packages("githubinstall") # if you have not installed "githubinstall" pa
 githubinstall::githubinstall("magicfor")
 ```
 
-The source code for githubinstall package is available on GitHub at
+The source code for magicfor package is available on GitHub at
 
 - https://github.com/hoxo-m/magicfor.
 
 ## 3. Details
 
-The package provides the functions as folows:
+The **magicfor** package provides the functions as follows:
 
 - `magic_for()`: Magicalize for.
 - `magic_free()`: Free magicalization.
@@ -151,6 +151,13 @@ The package provides the functions as folows:
     - `magic_result_as_dataframe()`: as a data.frame.
 - `put()`: Display values.
 
+In the following, we assume that the library is loaded to use the functions.
+
+
+```r
+library(magicfor)
+```
+
 ### 3.1 Basics
 
 The main function `magic_for()` magicalize for loops.
@@ -158,7 +165,6 @@ The main function `magic_for()` magicalize for loops.
 
 
 ```r
-library(magicfor)
 magic_for()
 
 for (i in 1:3) {
@@ -237,7 +243,7 @@ for (i in 1:100) {
 #> squared: 4
 ```
 
-If `silent = TRUE`, target function will be not executed only the values will be stored.
+If `silent = TRUE`, target function will be not executed but only the values will be stored.
 
 If `temp = TRUE`, the effect of magicalization will be lost after once execution of for loop.
 
@@ -251,7 +257,7 @@ for (i in 1:3) {
   squared <- i ^ 2
   put(squared)
 }
-#> The loop is magicalized with put().
+#> The loop is temporary magicalized with put().
 #> squared: 1
 #> squared: 4
 #> squared: 9
@@ -262,7 +268,7 @@ is_magicalized()
 
 ### 3.3 `magic_free()`
 
-You can use `magic_free()` to free magicalizetion.
+You can use `magic_free()` to cancel magicalization.
 
 
 ```r

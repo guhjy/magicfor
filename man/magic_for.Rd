@@ -5,7 +5,7 @@
 \title{Magicalize for()}
 \usage{
 magic_for(func = put, progress = FALSE, test = FALSE, silent = FALSE,
-  temp = FALSE, max_object_size = 1 * MB)
+  temporary = FALSE, max_object_size = 1 * MB)
 }
 \arguments{
 \item{func}{function name. The target function for magicalization.}
@@ -16,7 +16,7 @@ magic_for(func = put, progress = FALSE, test = FALSE, silent = FALSE,
 
 \item{silent}{logical. If TRUE, do not execute func. Usually, func is print something.}
 
-\item{temp}{logical. If TRUE, once run for(), free magicalization.}
+\item{temporary}{logical. If TRUE, once run for(), free magicalization.}
 
 \item{max_object_size}{a number. Prevent to store large iterator. Default to 1 MB.}
 }

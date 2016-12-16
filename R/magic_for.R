@@ -4,14 +4,14 @@
 #' @param progress logical. If TRUE, show progress bar.
 #' @param test logical or a number. If TRUE or a number, limit iteration times to it.
 #' @param silent logical. If TRUE, do not execute func. Usually, func is print something.
-#' @param temp logical. If TRUE, once run for(), free magicalization.
+#' @param temporary logical. If TRUE, once run for(), free magicalization.
 #' @param max_object_size a number. Prevent to store large iterator. Default to 1 MB.
 #'
 #' @importFrom utils object.size setTxtProgressBar txtProgressBar
 #'
 #' @export
 magic_for <- function(func = put, progress = FALSE, test = FALSE, silent = FALSE,
-                      temp = FALSE, max_object_size = 1 * MB) {
+                      temporary = FALSE, max_object_size = 1 * MB) {
   magic_free()
   calling_env <- parent.frame()
   func <- substitute(func)
@@ -19,8 +19,10 @@ magic_for <- function(func = put, progress = FALSE, test = FALSE, silent = FALSE
   # TODO ignore func == if
 
   my_for <- function(for_var_symbol, for_seq, for_body) {
-    if (!silent || progress) message(sprintf("The loop is magicalized with %s().", as.character(func)))
-    if (temp) remove_myself_from_calling_env(calling_env)
+    if (!silent || progress)
+      message(sprintf("The loop is%s magicalized with %s().",
+                      ifelse(temporary , " temporary", ""), as.character(func)))
+    if (temporary) remove_myself_from_calling_env(calling_env)
 
     # Preprocess --------------------------------------------------------------
     for_var_symbol <- substitute(for_var_symbol)
