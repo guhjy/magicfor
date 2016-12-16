@@ -4,7 +4,13 @@
 \alias{magic_result_as_dataframe}
 \title{Get values stored by magicalized for loops as a data.frame}
 \usage{
-magic_result_as_dataframe()
+magic_result_as_dataframe(iter = TRUE)
+}
+\arguments{
+\item{iter}{logical. Include iterator into the result.}
+}
+\value{
+data.frame
 }
 \description{
 Get values stored by magicalized for loops as a data.frame

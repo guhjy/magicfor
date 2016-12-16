@@ -7,6 +7,7 @@ Koji MAKIYAMA (@hoxo_m)
 
 [![Travis-CI Build Status](https://travis-ci.org/hoxo-m/magicfor.svg?branch=master)](https://travis-ci.org/hoxo-m/magicfor)
 [![CRAN Version](http://www.r-pkg.org/badges/version/magicfor)](https://cran.r-project.org/package=magicfor)
+[![Coverage Status](https://coveralls.io/repos/github/hoxo-m/magicfor/badge.svg?branch=master)](https://coveralls.io/github/hoxo-m/magicfor?branch=master)
 
 ## 1. Overview
 
@@ -374,11 +375,11 @@ for (i in 1:3) {
 #> x: 2, squared: 4, cubed: 8
 #> x: 3, squared: 9, cubed: 27
 
-magic_result_as_dataframe()
-#>   i x squared cubed
-#> 1 1 1       1     1
-#> 2 2 2       4     8
-#> 3 3 3       9    27
+magic_result_as_dataframe(F)
+#>   x squared cubed
+#> 1 1       1     1
+#> 2 2       4     8
+#> 3 3       9    27
 ```
 
 ## 4. Related Work

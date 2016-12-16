@@ -6,6 +6,9 @@
 \usage{
 magic_result()
 }
+\value{
+list
+}
 \description{
 Get values stored by magicalized for loops as a list
 }

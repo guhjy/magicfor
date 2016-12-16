@@ -6,6 +6,9 @@
 \usage{
 magic_result_as_vector()
 }
+\value{
+vector
+}
 \description{
 Get values stored by magicalized for loops as a vector
 }

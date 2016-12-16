@@ -1,11 +1,15 @@
 #' Get values stored by magicalized for loops as a list
 #'
+#' @return list
+#'
 #' @export
 magic_result <- function() {
   .result_env$result
 }
 
 #' Get values stored by magicalized for loops as a vector
+#'
+#' @return vector
 #'
 #' @export
 magic_result_as_vector <- function() {
@@ -21,10 +25,14 @@ magic_result_as_vector <- function() {
 
 #' Get values stored by magicalized for loops as a data.frame
 #'
+#' @param iter logical. Include iterator into the result.
+#'
+#' @return data.frame
+#'
 #' @export
-magic_result_as_dataframe <- function() {
+magic_result_as_dataframe <- function(iter = TRUE) {
   result <- .result_env$result
-  if(exists("input", envir = .result_env)) {
+  if(iter && exists("input", envir = .result_env)) {
     result <- c(list(.result_env$input), result)
     names(result)[1] <- .result_env$input_name
   }
