@@ -29,6 +29,7 @@ get_arg_names <- function(statements) {
   if (is.null(arg_names)) {
     arg_names <- rep("", length(statements))
   }
+  if (is.symbol(statements)) statements <- list(statements)
   mapply(function(name, arg) {
     if (name == "") {
       gsub("\\s+", "", deparse(arg))
@@ -43,4 +44,3 @@ to_assign_lines <- function(arg_names, statements) {
     bquote(.result[[.(name)]][[.i]] <- .(arg))
   }, arg_names, statements)
 }
-

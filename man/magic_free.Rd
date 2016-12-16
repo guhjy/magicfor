@@ -2,11 +2,11 @@
 % Please edit documentation in R/magic_free.R
 \name{magic_free}
 \alias{magic_free}
-\title{Clear the result}
+\title{Free magicalizetion and clear the result}
 \usage{
 magic_free()
 }
 \description{
-Clear the result
+Free magicalizetion and clear the result
 }
 

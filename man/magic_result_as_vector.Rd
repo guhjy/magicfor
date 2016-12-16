@@ -2,11 +2,11 @@
 % Please edit documentation in R/magic_result.R
 \name{magic_result_as_vector}
 \alias{magic_result_as_vector}
-\title{Get Magic Result as data.frame}
+\title{Get values stored by magicalized for loops as a vector}
 \usage{
 magic_result_as_vector()
 }
 \description{
-Get Magic Result as data.frame
+Get values stored by magicalized for loops as a vector
 }
 

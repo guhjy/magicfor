@@ -1,9 +1,10 @@
-#' Clear the result
+#' Free magicalizetion and clear the result
 #'
 #' @export
 magic_free <- function() {
   calling_env <- parent.frame()
-  if (!is.primitive(get("for", calling_env))) {
+
+  if (is_magicalized(calling_env)) {
     remove("for", envir = calling_env)
   }
 

@@ -8,17 +8,17 @@ magic_for(func = put, progress = FALSE, test = FALSE, silent = FALSE,
   temp = FALSE, max_object_size = 1 * MB)
 }
 \arguments{
-\item{func}{function name.}
+\item{func}{function name. The target function for magicalization.}
 
-\item{progress}{logical.}
+\item{progress}{logical. If TRUE, show progress bar.}
 
-\item{test}{logical or a number.}
+\item{test}{logical or a number. If TRUE or a number, limit iteration times to it.}
 
-\item{silent}{logical.}
+\item{silent}{logical. If TRUE, do not execute func. Usually, func is print something.}
 
-\item{temp}{logical.}
+\item{temp}{logical. If TRUE, once run for(), free magicalization.}
 
-\item{max_object_size}{a number. default 1 MB.}
+\item{max_object_size}{a number. Prevent to store large iterator. Default to 1 MB.}
 }
 \description{
 Magicalize for()

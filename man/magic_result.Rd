@@ -2,11 +2,11 @@
 % Please edit documentation in R/magic_result.R
 \name{magic_result}
 \alias{magic_result}
-\title{Get Magic Result}
+\title{Get values stored by magicalized for loops as a list}
 \usage{
 magic_result()
 }
 \description{
-Get Magic Result
+Get values stored by magicalized for loops as a list
 }
 

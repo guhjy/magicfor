@@ -1,11 +1,11 @@
 #' Magicalize for()
 #'
-#' @param func function name.
-#' @param progress logical.
-#' @param test logical or a number.
-#' @param silent logical.
-#' @param temp logical.
-#' @param max_object_size a number. default 1 MB.
+#' @param func function name. The target function for magicalization.
+#' @param progress logical. If TRUE, show progress bar.
+#' @param test logical or a number. If TRUE or a number, limit iteration times to it.
+#' @param silent logical. If TRUE, do not execute func. Usually, func is print something.
+#' @param temp logical. If TRUE, once run for(), free magicalization.
+#' @param max_object_size a number. Prevent to store large iterator. Default to 1 MB.
 #'
 #' @importFrom utils object.size setTxtProgressBar txtProgressBar
 #'
@@ -33,7 +33,6 @@ magic_for <- function(func = put, progress = FALSE, test = FALSE, silent = FALSE
     }
 
     if (test > 0) {
-      if (identical(test, TRUE)) test <- 2L
       for_seq <- for_seq[seq_len(test)]
     }
 
