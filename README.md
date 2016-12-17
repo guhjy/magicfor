@@ -423,8 +423,8 @@ magic_result_as_vector()
 #> [1] NA NA  9
 ```
 
-Target functions works only top indent lines or inside of if statements in magicalized for loops.
-For example, it does not work with nested for loops.
+Target functions work only top level lines or inside of if statements in magicalized for loops.
+For example, it does not work inside nested for loops.
 
 
 ```r

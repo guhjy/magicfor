@@ -343,8 +343,8 @@ for (i in 1:3) {
 magic_result_as_vector()
 ```
 
-Target functions works only top indent lines or inside of if statements in magicalized for loops.
-For example, it does not work with nested for loops.
+Target functions work only top level lines or inside of if statements in magicalized for loops.
+For example, it does not work inside nested for loops.
 
 ```{r}
 magic_for()
