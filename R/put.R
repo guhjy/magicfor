@@ -7,6 +7,9 @@
 put <- function (..., envir = parent.frame()) {
   vars <- substitute(list(...))
   var_names <- get_arg_names(vars[-1])
-  message(paste(sprintf("%s: %s", var_names, eval(vars, envir = envir)),
+  values <- eval(vars, envir = envir)
+  message(paste(sprintf("%s: %s", var_names, values),
                 collapse = ", "))
+  names(values) <- var_names
+  invisible(values)
 }

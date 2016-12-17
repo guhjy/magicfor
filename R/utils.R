@@ -39,8 +39,3 @@ get_arg_names <- function(statements) {
   }, arg_names, statements)
 }
 
-to_assign_lines <- function(arg_names, statements) {
-  mapply(function(name, arg) {
-    bquote(.result[[.(name)]][[.i]] <- .(arg))
-  }, arg_names, statements)
-}

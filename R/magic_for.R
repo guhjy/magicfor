@@ -43,50 +43,9 @@ magic_for <- function(func = put, progress = FALSE, test = FALSE, silent = FALSE
     }
 
     # Transform func to assign statements in the Body of for() ----------------
-    result_var_names <- c()
-
-    transformed_lines <- lapply(for_body[-1], function(line) {
-      if (is.symbol(line)) {
-        name <- get_arg_names(line)
-        result_var_names <<- c(result_var_names, name)
-        assign_line <- bquote(.result[[.(name)]][[.i]] <- .(line))
-        assign_line
-      } else if (main_func_of(line) == "if") {
-        cond <- line[[2]]
-        if_body <- line[[3]]
-        if (main_func_of(if_body) != "{") {
-          if_body <- call("{", if_body)
-        }
-        assign_lines <- lapply(if_body[-1], function(line) {
-          if (main_func_of(line) == func) {
-            arg_names <- get_arg_names(line[-1])
-            result_var_names <<- c(result_var_names, arg_names)
-            mapply(function(name, statement) {
-              bquote(.result[[.(name)]][[.i]] <- ifelse (.(cond), .(statement), NA))
-            }, arg_names, line[-1])
-          } else {
-            line
-          }
-        })
-        if (silent) {
-          unlist(assign_lines)
-        } else {
-          c(unlist(assign_lines), line)
-        }
-      } else if (main_func_of(line) == func) {
-        arg_names <- get_arg_names(line[-1])
-        result_var_names <<- c(result_var_names, arg_names)
-        assign_lines <- to_assign_lines(arg_names, line[-1])
-        if (silent) {
-          assign_lines
-        } else {
-          c(assign_lines, line)
-        }
-      } else {
-        line
-      }
-    })
-    transformed_lines <- unlist(transformed_lines)
+    transformed_info <- transform_lines(for_body, func, silent)
+    transformed_lines <- transformed_info$lines
+    result_var_names <- transformed_info$names
     if (progress) {
       transformed_lines <- append(transformed_lines,
                                   quote(setTxtProgressBar(progress_bar, .i)))
@@ -126,4 +85,52 @@ magic_for <- function(func = put, progress = FALSE, test = FALSE, silent = FALSE
   }
   assign("for", my_for, envir = calling_env)
   invisible(.result_env)
+}
+
+transform_lines <- function(call, func, silent) {
+  if (is.symbol(call)) {
+    name <- get_arg_names(call)
+    assign_line <- bquote(.result[[.(name)]][[.i]] <- .(call))
+    list(lines = list(assign_line), assign = TRUE, names = name)
+  } else if (main_func_of(call) == "{") {
+    line_info_list <- lapply(call[-1], transform_lines, func, silent)
+    lines <- unlist(lapply(line_info_list, function(info) info$lines))
+    assign <- unlist(lapply(line_info_list, function(info) info$assign))
+    names <- unlist(lapply(line_info_list, function(info) info$names))
+    list(lines = lines, assign = assign, names = names)
+  } else if(main_func_of(call) == "if") {
+    line_info <- transform_lines(call[[3]], func, silent)
+    if (length(call) == 3) {
+      names <- line_info$names
+      assign_lines <- line_info$lines[line_info$assign]
+      else_lines <- lapply(assign_lines, function(line) {line[[3]] <- NA; line})
+    } else if (length(call) == 4) {
+      line_info_else <- transform_lines(call[[4]], func, silent)
+      names <- c(line_info$names, line_info_else$names)
+      else_lines <- line_info_else$lines
+    } else {
+      stop(sprintf("Wrong if statement: %s", call))
+    }
+    if_body <- do.call(base::call, c(name = "{", line_info$lines), quote = TRUE)
+    else_body <- do.call(base::call, c(name = "{", else_lines), quote = TRUE)
+    line <- base::call("if", call[[2]], if_body, else_body)
+    list(lines = list(line), assign = FALSE, names = names)
+  } else if (main_func_of(call) == func) {
+    arg_names <- get_arg_names(call[-1])
+    assign_lines <- to_assign_lines(arg_names, call[-1])
+    assign <- rep(TRUE, length(assign_lines))
+    if (silent) {
+      list(lines = assign_lines, assign = assign, names = arg_names)
+    } else {
+      list(lines = c(assign_lines, call), assign = c(assign, FALSE), names = arg_names)
+    }
+  } else {
+    list(lines = list(call), assign = FALSE, names = NULL)
+  }
+}
+
+to_assign_lines <- function(arg_names, statements) {
+  mapply(function(name, arg) {
+    bquote(.result[[.(name)]][[.i]] <- .(arg))
+  }, arg_names, statements)
 }

@@ -388,6 +388,63 @@ magic_result_as_dataframe(F)
 #> 3 3       9    27
 ```
 
-## 4. Related Work
+## 4. Miscellaneous
 
-- WANTED!
+Whenever you put just variables in magicalized for loops, their values will be stored regardless of target functions.
+
+
+```r
+magic_for()
+
+for (i in 1:3) {
+  squared <- i ^ 2
+  squared
+}
+#> The loop is magicalized with put().
+
+magic_result_as_vector()
+#> [1] 1 4 9
+```
+
+When you write trarget functions inside of if statements without else, `NA` will be inserted to represent missing.
+
+
+```r
+magic_for()
+
+for (i in 1:3) {
+  squared <- i ^ 2
+  if(i == 3) put(squared)
+}
+#> The loop is magicalized with put().
+#> squared: 9
+
+magic_result_as_vector()
+#> [1] NA NA  9
+```
+
+Target functions works only top indent lines or inside of if statements in magicalized for loops.
+For example, it does not work with nested for loops.
+
+
+```r
+magic_for()
+
+for (i in 1:2) {
+  for (j in 1:2) {
+    put(i, j, i * j)
+  }
+}
+#> The loop is magicalized with put().
+#> i: 1, j: 1, i*j: 1
+#> i: 1, j: 2, i*j: 2
+#> i: 2, j: 1, i*j: 2
+#> i: 2, j: 2, i*j: 4
+
+magic_result_as_vector()
+#> list()
+```
+
+## 5. Related Work
+
+- WANTED
