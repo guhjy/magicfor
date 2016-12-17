@@ -93,7 +93,7 @@ We call it "magicalization".
 Once you call `magic_for()`, as you just run `for()` as usual, the result will be stored in memory automatically.
 
 Here, we are using `magic_result_as_dataframe()` in order to get the stored values.
-It is one of the functions to obtain results from "magicalized for loops", and means to take out the results as data.frame.
+It is one of the functions to obtain results from "magicalized for loops", and means to take out the results as a data.frame.
 
 Even if the number of observed variables increases, you can do it the same way.
 
@@ -114,7 +114,7 @@ magic_result_as_dataframe()
 #> 3 3       9    27
 ```
 
-`put()` is a useful function defined in the package.
+`put()` is the default function to store values in magicalized for loops.
 It allows to take any number of variables and can display them.
 
 ## 2. Installation
@@ -135,7 +135,7 @@ install.packages("githubinstall") # if you have not installed "githubinstall" pa
 githubinstall::githubinstall("magicfor")
 ```
 
-The source code for magicfor package is available on GitHub at
+The source code for **magicfor** package is available on GitHub at
 
 - https://github.com/hoxo-m/magicfor.
 
@@ -161,7 +161,7 @@ library(magicfor)
 ### 3.1 Basics
 
 The main function `magic_for()` magicalize for loops.
-"Magicalize" means to change the behavior of `for()` to store values outputted via the target function.
+"Magicalize" means to change the behavior of `for()` to store values outputted via target functions.
 
 
 ```r
@@ -186,7 +186,7 @@ put(x)
 #> x: 1
 ```
 
-You can take out the stored values using `magic_result_**()` after the loop finished.
+You can take out stored values using `magic_result_**()` when for loops have  finished.
 
 
 ```r
@@ -198,7 +198,7 @@ magic_result_as_vector()
 
 `magic_for()` has several options.
 
-Specify the first argument `func`, you can change target function.
+Specify the first argument `func`, you can change target functions.
 
 
 ```r
@@ -281,7 +281,7 @@ is_magicalized()
 #> [1] FALSE
 ```
 
-The function also clean the stored values.
+The function also clear the stored values.
 
 
 ```r
@@ -367,7 +367,7 @@ put(x, squared = x ^ 2, cubed = x ^ 3)
 #> x: 2, squared: 4, cubed: 8
 ```
 
-This flexibility is very useful for **magicfor**.
+It is very useful for **magicfor**.
 
 
 ```r
