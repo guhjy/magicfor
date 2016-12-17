@@ -1,12 +1,14 @@
 Package: magicfor
 Type: Package
-Title: Magic Functions to Obtain Results from for Loops in R
 Version: 0.0.0.9000
+Title: Magic Functions to Obtain Results from for Loops
+Description: Magic functions to obtain results from for loops.
 Authors@R: c(person("Koji", "Makiyama", email = "hoxo.smile@gmail.com", role = c("cre", "aut")))
-Description: Magic functions to obtain results from for loops in R.
+URL: https://github.com/hoxo-m/magicfor
+BugReports: https://github.com/hoxo-m/magicfor/issues
 License: MIT + file LICENSE
-RoxygenNote: 5.0.1
 Imports:
   utils
 Suggests: 
   testthat
+RoxygenNote: 5.0.1

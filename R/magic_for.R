@@ -16,7 +16,6 @@ magic_for <- function(func = put, progress = FALSE, test = FALSE, silent = FALSE
   calling_env <- parent.frame()
   func <- substitute(func)
   silent <- silent || progress
-  # TODO ignore func == if
 
   my_for <- function(for_var_symbol, for_seq, for_body) {
     if (!silent || progress)
