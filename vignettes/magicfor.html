@@ -108,7 +108,7 @@ result
 <span class="co">#&gt; 2 2       4</span>
 <span class="co">#&gt; 3 3       9</span></code></pre></div>
 <p>What a bother!</p>
-<p>In such or more troublesome situations like that you have to store many variables, the code will grow more complex soon.</p>
+<p>In such or more troublesome situations like that you have to store many variables, the code will grow more complex.</p>
 <p>The <strong>magicfor</strong> package makes to resolve the problem being kept readability.</p>
 <p>You just add two lines before the for loop. First, load the library. Second, call <code>magic_for()</code>. Notice that the main for loop is kept intact.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(magicfor)               <span class="co"># load library</span>
@@ -144,12 +144,8 @@ for (i in <span class="dv">1</span>:<span class="dv">3</span>) {
 </div>
 <div id="installation" class="section level2">
 <h2>2. Installation</h2>
-<p>You can install the package from GitHub.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>) <span class="co"># if you have not installed &quot;devtools&quot; package</span>
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;hoxo-m/magicfor&quot;</span>)</code></pre></div>
-<p>You can also use <strong>githubinstall</strong> package to easy install from GitHub.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;githubinstall&quot;</span>) <span class="co"># if you have not installed &quot;githubinstall&quot; package</span>
-githubinstall::<span class="kw">githubinstall</span>(<span class="st">&quot;magicfor&quot;</span>)</code></pre></div>
+<p>You can install the <strong>magicfor</strong> package from CRAN.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;magicfor&quot;</span>)</code></pre></div>
 <p>The source code for <strong>magicfor</strong> package is available on GitHub at</p>
 <ul>
 <li><a href="https://github.com/hoxo-m/magicfor" class="uri">https://github.com/hoxo-m/magicfor</a>.</li>

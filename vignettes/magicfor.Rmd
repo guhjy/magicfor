@@ -60,7 +60,7 @@ result
 
 What a bother!
 
-In such or more troublesome situations like that you have to store many variables, the code will grow more complex soon.
+In such or more troublesome situations like that you have to store many variables, the code will grow more complex.
 
 The **magicfor** package makes to resolve the problem being kept readability.
 
@@ -106,18 +106,10 @@ It allows to take any number of variables and can display them.
 
 ## 2. Installation
 
-You can install the package from GitHub.
+You can install the **magicfor** package from CRAN.
 
 ```{r eval=FALSE}
-install.packages("devtools") # if you have not installed "devtools" package
-devtools::install_github("hoxo-m/magicfor")
-```
-
-You can also use **githubinstall** package to easy install from GitHub.
-
-```{r eval=FALSE}
-install.packages("githubinstall") # if you have not installed "githubinstall" package
-githubinstall::githubinstall("magicfor")
+install.packages("magicfor")
 ```
 
 The source code for **magicfor** package is available on GitHub at

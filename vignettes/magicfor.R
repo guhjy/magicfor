@@ -52,12 +52,7 @@ for (i in 1:3) {
 magic_result_as_dataframe()
 
 ## ----eval=FALSE----------------------------------------------------------
-#  install.packages("devtools") # if you have not installed "devtools" package
-#  devtools::install_github("hoxo-m/magicfor")
-
-## ----eval=FALSE----------------------------------------------------------
-#  install.packages("githubinstall") # if you have not installed "githubinstall" package
-#  githubinstall::githubinstall("magicfor")
+#  install.packages("magicfor")
 
 ## ------------------------------------------------------------------------
 library(magicfor)

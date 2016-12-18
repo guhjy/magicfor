@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/hoxo-m/magicfor.svg?branch=master)](https://travis-ci.org/hoxo-m/magicfor)
+[![CRAN Version](http://www.r-pkg.org/badges/version/magicfor)](https://cran.r-project.org/package=magicfor)
+[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/magicfor)](http://cranlogs.r-pkg.org/badges/magicfor)
 [![Coverage Status](https://coveralls.io/repos/github/hoxo-m/magicfor/badge.svg?branch=master)](https://coveralls.io/github/hoxo-m/magicfor?branch=master)
 
 ## 1. Overview
@@ -64,7 +66,7 @@ result
 
 What a bother!
 
-In such or more troublesome situations like that you have to store many variables, the code will grow more complex soon.
+In such or more troublesome situations like that you have to store many variables, the code will grow more complex.
 
 The **magicfor** package makes to resolve the problem being kept readability.
 
@@ -110,18 +112,10 @@ It allows to take any number of variables and can display them.
 
 ## 2. Installation
 
-You can install the package from GitHub.
+You can install the **magicfor** package from CRAN.
 
 ```{r eval=FALSE}
-install.packages("devtools") # if you have not installed "devtools" package
-devtools::install_github("hoxo-m/magicfor")
-```
-
-You can also use **githubinstall** package to easy install from GitHub.
-
-```{r eval=FALSE}
-install.packages("githubinstall") # if you have not installed "githubinstall" package
-githubinstall::githubinstall("magicfor")
+install.packages("magicfor")
 ```
 
 The source code for **magicfor** package is available on GitHub at
