@@ -10,6 +10,14 @@ Koji MAKIYAMA (@hoxo_m)
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/magicfor)](http://cranlogs.r-pkg.org/badges/magicfor)
 [![Coverage Status](https://coveralls.io/repos/github/hoxo-m/magicfor/badge.svg?branch=master)](https://coveralls.io/github/hoxo-m/magicfor?branch=master)
 
+## Abstract
+
+What is the inconvenience of for loops in R?
+It is that the results you get will be gone away.
+So we have created a package to store the results automatically.
+To do it, you only need to cast one line spell.
+In this text, we tell you about how to use the magic.
+
 ## 1. Overview
 
 `for()` is one of the most popular functions in R.
