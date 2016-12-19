@@ -13,9 +13,9 @@ Koji MAKIYAMA (@hoxo_m)
 ## Abstract
 
 What is the inconvenience of for loops in R?
-It is that the results you get will be gone away.
+It is that results you get will be gone away.
 So we have created a package to store the results automatically.
-To do it, you only need to cast one line spell.
+To do it, you only need to cast one line spell `magic_for()`.
 In this text, we tell you about how to use the magic.
 
 ## 1. Overview
