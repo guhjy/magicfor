@@ -12,7 +12,7 @@ Koji MAKIYAMA (@hoxo_m)
 
 ## Abstract
 
-What is the inconvenience of for loops in R?
+What is inconvenience of for loops in R?
 It is that results you get will be gone away.
 So we have created a package to store the results automatically.
 To do it, you only need to cast one line spell `magic_for()`.
@@ -38,8 +38,8 @@ for (i in 1:3) {
 
 It is very easy.
 
-However, it becomes too much hassle to change such codes to store the result.
-You must prepare some containers with correct length for storing the result and change `print()` to assignment statements.
+However, it becomes too much hassle to change such codes to store printed results.
+You must prepare some containers with correct length for storing results and change `print()` to assignment statements.
 
 
 ```r
@@ -52,7 +52,7 @@ result
 #> [1] 1 4 9
 ```
 
-Moreover, you may want to store the result as a data.frame with the iteration numbers.
+Moreover, you may want to store results as a data.frame with iteration numbers.
 
 
 ```r
@@ -72,37 +72,42 @@ result
 
 What a bother!
 
-In such or more troublesome situations like that you have to store many variables, the code will grow more complex.
+In such or more troublesome situations like that you have to store many variables, codes will grow more complex.
 
 The **magicfor** package makes to resolve the problem being kept readability.
 
-You just add two lines before the for loop.
+You just add two lines before for loops.
 First, load the library. Second, call `magic_for()`.
 Notice that the main for loop is kept intact.
 
 
 ```r
-library(magicfor)               # load library
-magic_for(print, silent = TRUE) # call magic_for()
+library(magicfor)  # Load library
+magic_for(print)   # Call magic_for()
 
 for (i in 1:3) {
   squared <- i ^ 2
   print(squared)
 }
-
-magic_result_as_dataframe()     # get the result
-#>   i squared
-#> 1 1       1
-#> 2 2       4
-#> 3 3       9
+#> The loop is magicalized with print().
+#> [1] 1
+#> [1] 4
+#> [1] 9
 ```
 
-`magic_for()` takes a function name, and then reconstructs `for()` to remember values passed to the specified function in for loops.
-We call it "magicalization".
-Once you call `magic_for()`, as you just run `for()` as usual, the result will be stored in memory automatically.
+`magic_for()` takes a function name, and reconstructs `for()` to remember values passed to the specified function in for loops.
+We call it *magicalization*.
+Once you call `magic_for()`, as you just exectute `for()` as usual, the result will be stored in memory automatically.
 
-Here, we are using `magic_result_as_dataframe()` in order to get the stored values.
-It is one of the functions to obtain results from "magicalized for loops", and means to take out the results as a data.frame.
+Here, let's use `magic_result_as_vector()` to access the stored values.
+
+
+```r
+magic_result_as_vector()  # Get the result
+#> [1] 1 4 9
+```
+
+It is one of the functions to obtain results from *magicalized for loops*, and means to take out the results as a vector.
 
 Even if the number of observed variables increases, you can do it the same way.
 
@@ -144,7 +149,7 @@ The source code for **magicfor** package is available on GitHub at
 The **magicfor** package provides the functions as follows:
 
 - `magic_for()`: Magicalize for.
-- `magic_free()`: Free magicalization.
+- `magic_free()`: Cancel magicalization.
 - Get results:
     - `magic_result()`: as a list.
     - `magic_result_as_vetor()`: as a vector.
@@ -161,7 +166,7 @@ library(magicfor)
 ### 3.1 Basics
 
 The main function `magic_for()` magicalize for loops.
-"Magicalize" means to change the behavior of `for()` to store values outputted via target functions.
+*Magicalize* means to change the behavior of `for()` to store values outputted via target functions.
 
 
 ```r
